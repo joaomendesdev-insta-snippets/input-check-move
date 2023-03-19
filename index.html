@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <img
+        src="https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+    <form>
+        <div class="wrapper">
+            <label>Insira o seu email</label>
+            <input type="email" placeholder="Insira o seu email" id="email" />
+        </div>
+        <div class="wrapper">
+            <label>Insira a sua password</label>
+            <input type="password" placeholder="Insira a sua password" id="password" />
+        </div>
+        <div class="button-wrapper" onmouseover="checkForm()" onmouseleave="onLeaveForm()" id="button-wrapper">
+            <button id="button">Login</button>
+        </div>
+    </form>
+</body>
+
+<script>
+    var count = 0
+    function checkForm() {
+        const emailInput = document.getElementById('email')
+        const passwordInput = document.getElementById('password')
+
+        if (!emailInput.checkValidity() || emailInput.value == '' || passwordInput.value == '') {
+            if (count === 0) {
+                document.getElementById('button-wrapper').style.marginLeft = 'auto'
+                document.getElementById('button-wrapper').style.marginRight = '0'
+                count++
+            } else {
+                document.getElementById('button-wrapper').style.marginRight = 'auto'
+                document.getElementById('button-wrapper').style.marginLeft = '0'
+                count--
+            }
+        } else {
+            document.getElementById('button').style.background = 'white'
+            document.getElementById('button').style.color = 'black'
+        }
+    }
+
+    function onLeaveForm() {
+        document.getElementById('button').style.background = 'none'
+        document.getElementById('button').style.color = 'white'
+    }
+
+</script>
